@@ -1,7 +1,5 @@
 import produce from "immer";
 import { Reducer } from "react";
-import axios from "axios";
-import { createApi } from "unsplash-js";
 import { ACTION_TYPES } from "./constants";
 
 const detailsReducer: Reducer<DetailsState, DetailsAction> = produce(
