@@ -2,6 +2,8 @@ import { FunctionComponent } from "react";
 import { Button, TextField, Radio, RadioGroup } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { useDetails, useDetailsActions } from "../providers";
+import { useNavigate } from "react-router-dom";
 
 interface EntryProps {}
 
@@ -18,15 +20,22 @@ enum Options {
 }
 
 const Entry: FunctionComponent<EntryProps> = () => {
+  const details = useDetails();
+  const { set } = useDetailsActions();
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
-      firstName: "",
+      firstName: details.firstName,
       surname: "",
       topic: "",
+      thumbnail: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      //alert(JSON.stringify(values, null, 2));
+      set(values);
+      navigate("/preview");
     },
   });
 
@@ -52,6 +61,16 @@ const Entry: FunctionComponent<EntryProps> = () => {
           onChange={formik.handleChange}
           error={formik.touched.surname && Boolean(formik.errors.surname)}
           helperText={formik.touched.surname && formik.errors.surname}
+        />
+
+        <TextField
+          id="topic"
+          name="topic"
+          label="topic"
+          value={formik.values.topic}
+          onChange={formik.handleChange}
+          error={formik.touched.topic && Boolean(formik.errors.topic)}
+          helperText={formik.touched.topic && formik.errors.topic}
         />
 
         <Button color="primary" variant="contained" type="submit">

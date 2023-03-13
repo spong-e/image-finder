@@ -14,7 +14,7 @@ const NavBar: FunctionComponent<NavBarProps> = () => {
           <Link to="/entry">Entry</Link>
         </li>
         <li>
-          <Link to="/present">Present</Link>
+          <Link to="/preview">Preview</Link>
         </li>
         <li>
           <Link to="/display">Display</Link>
