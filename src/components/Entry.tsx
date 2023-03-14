@@ -1,82 +1,128 @@
 import { FunctionComponent } from "react";
-import { Button, TextField, Radio, RadioGroup } from "@mui/material";
 import { useFormik } from "formik";
-import * as yup from "yup";
-import { useDetails, useDetailsActions } from "../providers";
 import { useNavigate } from "react-router-dom";
+import { Form, Input, Radio } from "semantic-ui-react";
+import * as Yup from "yup";
 
-interface EntryProps {}
+import { ROUTES } from "../constants";
+import { useDetailsActions } from "../providers";
 
-const validationSchema = yup.object({
-  firstName: yup.string().required("Firstname is required"),
-  surname: yup.string().required("Surname is required"),
-  thumbnail: yup.string(),
+const topicOptions = [
+  { label: "Travel", value: "travel" },
+  { label: "Cars", value: "cars" },
+  { label: "Wildlife", value: "wildlife" },
+  { label: "Technology", value: "technology" },
+  { label: "Other", value: "other" },
+];
+
+const validationSchema = Yup.object().shape({
+  firstName: Yup.string().required("First name is required"),
+  lastName: Yup.string().required("Last name is required"),
+  thumbnail: Yup.string(),
+  topic: Yup.string(),
+  otherTopic: Yup.string().when("topic", {
+    is: (val: string) => val === "other",
+    then: () => Yup.string().required("Other topic is required"),
+  }),
 });
 
-enum Options {
-  Option1,
-  Option2,
-  Option3,
-}
-
-const Entry: FunctionComponent<EntryProps> = () => {
-  const details = useDetails();
-  const { set } = useDetailsActions();
+const Entry: FunctionComponent = () => {
+  const { setDetails } = useDetailsActions();
   const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
-      firstName: details.firstName,
-      surname: "",
+      firstName: "",
+      lastName: "",
       topic: "",
+      otherTopic: "",
       thumbnail: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      //alert(JSON.stringify(values, null, 2));
-      set(values);
-      navigate("/preview");
+      if (values.topic === "other") values.topic = values.otherTopic;
+
+      setDetails(values).then(() => navigate(ROUTES.SEARCH));
     },
   });
 
+  const otherSelected = formik.values.topic === "other";
+
   return (
     <div>
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          id="firstName"
-          name="firstName"
-          label="First name"
-          value={formik.values.firstName}
-          onChange={formik.handleChange}
-          error={formik.touched.firstName && Boolean(formik.errors.firstName)}
-          helperText={formik.touched.firstName && formik.errors.firstName}
-        />
+      <Form onSubmit={formik.handleSubmit}>
+        <Form.Group widths="equal">
+          <Form.Field
+            id="firstName"
+            control={Input}
+            label="First name"
+            placeholder="First name"
+            value={formik.values.firstName}
+            onChange={formik.handleChange}
+            error={
+              formik.touched.firstName &&
+              Boolean(formik.errors.firstName) && {
+                pointing: "above",
+                content: formik.errors.firstName,
+              }
+            }
+          />
 
-        <TextField
-          id="surname"
-          name="surname"
-          label="Surname"
-          type="text"
-          value={formik.values.surname}
-          onChange={formik.handleChange}
-          error={formik.touched.surname && Boolean(formik.errors.surname)}
-          helperText={formik.touched.surname && formik.errors.surname}
-        />
+          <Form.Field
+            id="lastName"
+            control={Input}
+            label="Last name"
+            placeholder="Last name"
+            value={formik.values.lastName}
+            onChange={formik.handleChange}
+            error={
+              formik.touched.lastName &&
+              Boolean(formik.errors.lastName) && {
+                pointing: "above",
+                content: formik.errors.lastName,
+              }
+            }
+          />
+        </Form.Group>
+        <Form.Group inline>
+          {topicOptions.map((topic) => {
+            return (
+              <Form.Field>
+                <Radio
+                  id={`topic_${topic.value}`}
+                  label={topic.label}
+                  name="topic"
+                  value={topic.value}
+                  checked={formik.values.topic === topic.value}
+                  onChange={formik.handleChange}
+                  error={formik.touched.topic && Boolean(formik.errors.topic)}
+                />
+              </Form.Field>
+            );
+          })}
+        </Form.Group>
+        <Form.Group widths="equal">
+          {otherSelected && (
+            <Form.Field
+              id="otherTopic"
+              control={Input}
+              label="Other topic"
+              placeholder="Other topic"
+              onChange={formik.handleChange}
+              error={
+                formik.touched.otherTopic &&
+                Boolean(formik.errors.otherTopic) && {
+                  content: formik.errors.otherTopic,
+                }
+              }
+            />
+          )}
+        </Form.Group>
 
-        <TextField
-          id="topic"
-          name="topic"
-          label="topic"
-          value={formik.values.topic}
-          onChange={formik.handleChange}
-          error={formik.touched.topic && Boolean(formik.errors.topic)}
-          helperText={formik.touched.topic && formik.errors.topic}
-        />
-
-        <Button color="primary" variant="contained" type="submit">
-          Submit
-        </Button>
-      </form>
+        <Form.Button primary type="submit">
+          Search
+        </Form.Button>
+      </Form>
     </div>
   );
 };

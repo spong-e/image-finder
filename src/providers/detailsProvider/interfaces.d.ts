@@ -4,7 +4,7 @@ interface DetailsState {
 
 interface Details {
   firstName: string;
-  surname: string;
+  lastName: string;
   topic: string;
   thumbnail: string;
 }

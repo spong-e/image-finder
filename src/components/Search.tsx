@@ -1,88 +1,60 @@
-import { ResultType } from "@remix-run/router/dist/utils";
-import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { Button, TextField, Radio, RadioGroup } from "@mui/material";
-import { isReturnStatement } from "typescript";
-import { createApi } from "unsplash-js";
+import { FunctionComponent, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Button, Card, Image, Loader } from "semantic-ui-react";
+
+import { ROUTES } from "../constants";
+import { useUnsplash } from "../hooks";
 import { useDetails, useDetailsActions } from "../providers";
 
-const unsplash = createApi({
-  accessKey: "wgjrDO2DM4AvZsuTYlTWp8tCAtmwz2n0P3rCN0cNHho ",
-});
-
-interface SearchProps {}
-
-const Search: FunctionComponent<SearchProps> = () => {
+const Search: FunctionComponent = () => {
+  const navigate = useNavigate();
   const details = useDetails();
-  const { set } = useDetailsActions();
-  const [preview, setPreview] = useState<string | undefined>(undefined);
-  const [images, setImages] = useState<string[]>([]);
-  const [position, setPosition] = useState<number>(0);
+  const { setDetails } = useDetailsActions();
+  const [page, setPage] = useState<number>(1);
+  const [isSearching, photo] = useUnsplash(details.topic, page);
 
-  useEffect(() => {
-    if (details.thumbnail) {
-      setPreview(details.thumbnail);
-      return;
-    }
-    unsplash.search
-      .getPhotos({
-        query: details.topic,
-        page: 1,
-        perPage: 10,
-        color: "green",
-        orientation: "portrait",
-      })
-      .then((result) => {
-        if (result.type === "success") {
-          const photos = result.response;
-
-          photos.results.forEach((photo) => {
-            const {
-              urls: { small },
-            } = photo;
-            setImages((existingPhotos: string[]) => [...existingPhotos, small]);
-          });
-
-          const {
-            urls: { small },
-          } = photos.results[0];
-          setPreview(small);
-        }
-      });
-  }, [details]);
-
-  useEffect(() => {
-    //if (preview) return;
-    if (details.thumbnail) return;
-    setPreview(images[position]);
-  }, [position]);
-
-  const decline = () => setPosition(position + 1);
+  const decline = () => {
+    setPage(page + 1);
+  };
 
   const accept = () => {
-    if (!preview) return;
-    const newDetails: Details = { ...details, thumbnail: preview };
-    set(newDetails);
+    if (!photo) return;
+    const newDetails: Details = { ...details, thumbnail: photo };
+
+    setDetails(newDetails).then(() => navigate(ROUTES.DISPLAY));
   };
+
   return (
     <>
-      <p>Preview</p>
-      <Button
-        color="primary"
-        variant="contained"
-        type="button"
-        onClick={() => accept()}
-      >
-        Accept
-      </Button>
-      <Button
-        color="primary"
-        variant="contained"
-        type="button"
-        onClick={() => decline()}
-      >
-        Decline
-      </Button>
-      {preview && <img src={preview} />}
+      <Card>
+        {!isSearching && (
+          <Card.Content>
+            <Loader active inline size="massive">
+              Searching...
+            </Loader>
+          </Card.Content>
+        )}
+        {photo && (
+          <>
+            {" "}
+            <Card.Content>
+              <Image src={photo} wrapped ui={true} />
+            </Card.Content>
+            <Card.Content extra>
+              <div className="ui two buttons">
+                <Button basic color="green" onClick={() => accept()}>
+                  Accept
+                </Button>
+                <Button basic color="red" onClick={() => decline()}>
+                  Decline
+                </Button>
+              </div>
+            </Card.Content>
+          </>
+        )}
+      </Card>
+
+      <Link to={ROUTES.ENTRY}>Start again</Link>
     </>
   );
 };
