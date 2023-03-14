@@ -1,9 +1,14 @@
-import * as React from "react";
-import { createContext, Dispatch, ReactNode, useReducer } from "react";
+import {
+  createContext,
+  Dispatch,
+  FunctionComponent,
+  ReactNode,
+  useReducer,
+} from "react";
+
 import detailsReducer from "./DetailsReducer";
 
 const DetailsContext = createContext<DetailsState | undefined>(undefined);
-
 const DetailsDispatchContext = createContext<
   Dispatch<DetailsAction> | undefined
 >(undefined);
@@ -12,11 +17,13 @@ interface DetailsProviderProps {
   children: ReactNode;
 }
 
-function DetailsProvider({ children }: DetailsProviderProps) {
+const DetailsProvider: FunctionComponent<DetailsProviderProps> = ({
+  children,
+}) => {
   const initialState: DetailsState = {
     details: {
       firstName: "",
-      surname: "",
+      lastName: "",
       topic: "",
       thumbnail: "",
     },
@@ -24,20 +31,13 @@ function DetailsProvider({ children }: DetailsProviderProps) {
 
   const [state, dispatch] = useReducer(detailsReducer, initialState);
 
-  // NOTE: you *might* need to memoize this value
-  // Learn more in http://kcd.im/optimize-context
-
-  const value = { state, dispatch };
   return (
     <DetailsContext.Provider value={state}>
       <DetailsDispatchContext.Provider value={dispatch}>
-        <>
-          {JSON.stringify(state, null, 2)}
-          {children}
-        </>
+        {children}
       </DetailsDispatchContext.Provider>
     </DetailsContext.Provider>
   );
-}
+};
 
-export { DetailsProvider, DetailsContext, DetailsDispatchContext };
+export { DetailsContext, DetailsDispatchContext, DetailsProvider };

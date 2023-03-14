@@ -1,6 +1,7 @@
-import produce from "immer";
 import { Reducer } from "react";
-import { ACTION_TYPES } from "./constants";
+import produce from "immer";
+
+import { ACTION_TYPES } from "../constants";
 
 const detailsReducer: Reducer<DetailsState, DetailsAction> = produce(
   (draft: DetailsState, action: DetailsAction) => {
