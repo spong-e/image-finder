@@ -10,7 +10,7 @@ const useDetailsActions = () => {
       "No DetailsDispatchContext.Provider found when calling useDetailsActions."
     );
 
-  const setDetails = async (details: Details) => {
+  const setDetails = (details: Details) => {
     detailsDispatchContext({
       type: ACTION_TYPES.SET_DETAILS,
       payload: details,

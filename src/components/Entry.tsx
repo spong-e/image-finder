@@ -42,7 +42,15 @@ const Entry: FunctionComponent = () => {
     onSubmit: (values) => {
       if (values.topic === "other") values.topic = values.otherTopic;
 
-      setDetails(values).then(() => navigate(ROUTES.SEARCH));
+      const details: Details = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        topic: values.topic,
+        thumbnail: values.thumbnail,
+      };
+
+      setDetails(details);
+      navigate(ROUTES.SEARCH);
     },
   });
 
@@ -59,6 +67,7 @@ const Entry: FunctionComponent = () => {
             placeholder="First name"
             value={formik.values.firstName}
             onChange={formik.handleChange}
+            data-testid="firstNameInput"
             error={
               formik.touched.firstName &&
               Boolean(formik.errors.firstName) && {
@@ -75,6 +84,7 @@ const Entry: FunctionComponent = () => {
             placeholder="Last name"
             value={formik.values.lastName}
             onChange={formik.handleChange}
+            data-testid="lastNameInput"
             error={
               formik.touched.lastName &&
               Boolean(formik.errors.lastName) && {
@@ -87,7 +97,7 @@ const Entry: FunctionComponent = () => {
         <Form.Group inline>
           {topicOptions.map((topic) => {
             return (
-              <Form.Field>
+              <Form.Field key={`topic_${topic.value}`}>
                 <Radio
                   id={`topic_${topic.value}`}
                   label={topic.label}
@@ -95,7 +105,7 @@ const Entry: FunctionComponent = () => {
                   value={topic.value}
                   checked={formik.values.topic === topic.value}
                   onChange={formik.handleChange}
-                  error={formik.touched.topic && Boolean(formik.errors.topic)}
+                  data-testid={`topic_${topic.value}Radio`}
                 />
               </Form.Field>
             );
@@ -109,6 +119,7 @@ const Entry: FunctionComponent = () => {
               label="Other topic"
               placeholder="Other topic"
               onChange={formik.handleChange}
+              data-testid="otherTopicInput"
               error={
                 formik.touched.otherTopic &&
                 Boolean(formik.errors.otherTopic) && {
@@ -119,7 +130,7 @@ const Entry: FunctionComponent = () => {
           )}
         </Form.Group>
 
-        <Form.Button primary type="submit">
+        <Form.Button primary type="submit" data-testid="submitBtn">
           Search
         </Form.Button>
       </Form>

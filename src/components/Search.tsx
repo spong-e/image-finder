@@ -20,8 +20,8 @@ const Search: FunctionComponent = () => {
   const accept = () => {
     if (!photo) return;
     const newDetails: Details = { ...details, thumbnail: photo };
-
-    setDetails(newDetails).then(() => navigate(ROUTES.DISPLAY));
+    setDetails(newDetails);
+    navigate(ROUTES.DISPLAY);
   };
 
   return (

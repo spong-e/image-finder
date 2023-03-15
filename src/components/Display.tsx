@@ -8,15 +8,22 @@ import { useDetails } from "../providers";
 const Display: FunctionComponent = () => {
   const details = useDetails();
 
+  if (!details) return null;
+
   const { thumbnail, firstName, lastName } = details;
 
   return (
     <>
       <Card>
         <Card.Content>
-          <Image src={thumbnail} floated="right" size="small" />
+          <Image
+            src={thumbnail}
+            floated="right"
+            size="small"
+            data-testid="card-thumbnail"
+          />
 
-          <Card.Header>
+          <Card.Header data-testid="card-header">
             {firstName} {lastName}
           </Card.Header>
         </Card.Content>
