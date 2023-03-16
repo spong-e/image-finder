@@ -1,9 +1,6 @@
-import { useEffect,useState } from "react";
-import { createApi } from "unsplash-js";
+import { useEffect, useState } from "react";
 
-const unsplash = createApi({
-  accessKey: process.env.REACT_APP_UNSPLASH_API_KEY ?? "",
-});
+import { unsplashSearch } from "./unsplashSearch";
 
 const useUnsplash = (topic: string, page: number) => {
   const [isSearching, setIsSearching] = useState<boolean>(false);
@@ -12,12 +9,9 @@ const useUnsplash = (topic: string, page: number) => {
 
   useEffect(() => {
     setIsSearching(true);
-    unsplash.search
-      .getPhotos({
-        query: topic,
-        page: page,
-        perPage: 1,
-      })
+
+    unsplashSearch
+      .search(topic, page)
       .then((result) => {
         if (result.type === "success") {
           const photos = result.response;
@@ -27,6 +21,7 @@ const useUnsplash = (topic: string, page: number) => {
           } = photos.results[0];
 
           setPhoto(small);
+          setIsSearching(false);
         }
       })
       .catch(() => {

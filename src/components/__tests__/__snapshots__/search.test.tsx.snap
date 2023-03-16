@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component Component renders as expected when searching When component loads, shows 'searching' message and renders as expected 1`] = `
+<div>
+  <div
+    class="ui card"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="ui massive active text inline loader"
+      >
+        Searching...
+      </div>
+    </div>
+  </div>
+  <a
+    href="/"
+  >
+    Start again
+  </a>
+</div>
+`;
+
+exports[`Search component Component renders as expected when searching complete After component loaded, clicking on accept dispatches action and navigates to display 1`] = `
+<div>
+  <div
+    class="ui card"
+  >
+     
+    <div
+      class="content"
+    >
+      <div
+        class="ui image"
+        data-testid="imageElement"
+      >
+        <img
+          src="http://tempuri/cars/1"
+        />
+      </div>
+    </div>
+    <div
+      class="extra content"
+    >
+      <div
+        class="ui two buttons"
+      >
+        <button
+          class="ui green basic button"
+          data-testid="acceptBtn"
+        >
+          Accept
+        </button>
+        <button
+          class="ui red basic button"
+          data-testid="declineBtn"
+        >
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+  <a
+    href="/"
+  >
+    Start again
+  </a>
+</div>
+`;
+
+exports[`Search component Component renders as expected when searching complete After component loaded, clicking on decline generates a new image 1`] = `
+<div>
+  <div
+    class="ui card"
+  >
+     
+    <div
+      class="content"
+    >
+      <div
+        class="ui image"
+        data-testid="imageElement"
+      >
+        <img
+          src="http://tempuri/cars/1"
+        />
+      </div>
+    </div>
+    <div
+      class="extra content"
+    >
+      <div
+        class="ui two buttons"
+      >
+        <button
+          class="ui green basic button"
+          data-testid="acceptBtn"
+        >
+          Accept
+        </button>
+        <button
+          class="ui red basic button"
+          data-testid="declineBtn"
+        >
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+  <a
+    href="/"
+  >
+    Start again
+  </a>
+</div>
+`;
+
+exports[`Search component Component renders as expected when searching complete After component loaded, clicking on decline generates a new image 2`] = `
+<div>
+  <div
+    class="ui card"
+  >
+     
+    <div
+      class="content"
+    >
+      <div
+        class="ui image"
+        data-testid="imageElement"
+      >
+        <img
+          src="http://tempuri/cars/2"
+        />
+      </div>
+    </div>
+    <div
+      class="extra content"
+    >
+      <div
+        class="ui two buttons"
+      >
+        <button
+          class="ui green basic button"
+          data-testid="acceptBtn"
+        >
+          Accept
+        </button>
+        <button
+          class="ui red basic button"
+          data-testid="declineBtn"
+        >
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+  <a
+    href="/"
+  >
+    Start again
+  </a>
+</div>
+`;
+
+exports[`Search component Component renders as expected when searching complete When component loads, shows imageu and renders as expected 1`] = `
+<div>
+  <div
+    class="ui card"
+  >
+     
+    <div
+      class="content"
+    >
+      <div
+        class="ui image"
+        data-testid="imageElement"
+      >
+        <img
+          src="http://tempuri/cars/1"
+        />
+      </div>
+    </div>
+    <div
+      class="extra content"
+    >
+      <div
+        class="ui two buttons"
+      >
+        <button
+          class="ui green basic button"
+          data-testid="acceptBtn"
+        >
+          Accept
+        </button>
+        <button
+          class="ui red basic button"
+          data-testid="declineBtn"
+        >
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+  <a
+    href="/"
+  >
+    Start again
+  </a>
+</div>
+`;

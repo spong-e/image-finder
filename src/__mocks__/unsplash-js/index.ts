@@ -1,0 +1,365 @@
+// // // import { AdditionalFetchOptions } from "unsplash-js/dist/helpers/request";
+// // // import { ApiResponse } from "unsplash-js/dist/helpers/response";
+import * as response from "./response.json";
+
+const createApi = () => ({
+  photos: {
+    get: () => {},
+    list: () => {},
+    getStats: () => {},
+    getRandom: () => {},
+    trackDownload: () => {},
+  },
+  users: {
+    getPhotos: () => {},
+    getCollections: () => {},
+    getLikes: () => {},
+    get: () => {},
+  },
+  search: {
+    //getCollections: () => {},
+    getPhotos: async () => {
+      console.log("here we are");
+      return await Promise.resolve(response);
+    },
+    getUsers: () => {},
+  },
+  collections: {
+    getPhotos: () => {},
+    get: () => {},
+    list: () => {},
+    getRelated: () => {},
+  },
+  topics: {
+    list: () => {},
+    get: () => {},
+    getPhotos: () => {},
+  },
+});
+
+export { createApi };
+
+// {
+//     "type": "success",
+//     "status": 200,
+//     "response": {
+//         "total": 10002,
+//         "total_pages": 10002,
+//         "results": [
+//             {
+//                 "id": "-ZFvSWK4L28",
+//                 "created_at": "2022-12-22T16:24:23Z",
+//                 "updated_at": "2023-03-14T00:36:58Z",
+//                 "promoted_at": null,
+//                 "width": 5856,
+//                 "height": 3904,
+//                 "color": "#404026",
+//                 "blur_hash": "LcHU|1R7ouWB~pIVM{R*-;a|V@Rj",
+//                 "description": null,
+//                 "alt_description": "a woman with dreadlocks sitting in front of a laptop computer",
+//                 "urls": {
+//                     "raw": "https://images.unsplash.com/photo-1671726203454-5d7a5370a9f4?ixid=Mnw0MjE3ODV8MXwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5fGVufDB8fHx8MTY3ODgyMTY1OQ&ixlib=rb-4.0.3",
+//                     "full": "https://images.unsplash.com/photo-1671726203454-5d7a5370a9f4?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw0MjE3ODV8MXwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5fGVufDB8fHx8MTY3ODgyMTY1OQ&ixlib=rb-4.0.3&q=80",
+//                     "regular": "https://images.unsplash.com/photo-1671726203454-5d7a5370a9f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MjE3ODV8MXwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5fGVufDB8fHx8MTY3ODgyMTY1OQ&ixlib=rb-4.0.3&q=80&w=1080",
+//                     "small": "https://images.unsplash.com/photo-1671726203454-5d7a5370a9f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MjE3ODV8MXwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5fGVufDB8fHx8MTY3ODgyMTY1OQ&ixlib=rb-4.0.3&q=80&w=400",
+//                     "thumb": "https://images.unsplash.com/photo-1671726203454-5d7a5370a9f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MjE3ODV8MXwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5fGVufDB8fHx8MTY3ODgyMTY1OQ&ixlib=rb-4.0.3&q=80&w=200",
+//                     "small_s3": "https://s3.us-west-2.amazonaws.com/images.unsplash.com/small/photo-1671726203454-5d7a5370a9f4"
+//                 },
+//                 "links": {
+//                     "self": "https://api.unsplash.com/photos/-ZFvSWK4L28",
+//                     "html": "https://unsplash.com/photos/-ZFvSWK4L28",
+//                     "download": "https://unsplash.com/photos/-ZFvSWK4L28/download?ixid=Mnw0MjE3ODV8MXwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5fGVufDB8fHx8MTY3ODgyMTY1OQ",
+//                     "download_location": "https://api.unsplash.com/photos/-ZFvSWK4L28/download?ixid=Mnw0MjE3ODV8MXwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5fGVufDB8fHx8MTY3ODgyMTY1OQ"
+//                 },
+//                 "likes": 22,
+//                 "liked_by_user": false,
+//                 "current_user_collections": [],
+//                 "sponsorship": {
+//                     "impression_urls": [],
+//                     "tagline": "Laptops Designed by Microsoft",
+//                     "tagline_url": "https://www.microsoft.com/surface",
+//                     "sponsor": {
+//                         "id": "N-JSeSTCz68",
+//                         "updated_at": "2023-03-13T01:17:16Z",
+//                         "username": "surface",
+//                         "name": "Surface",
+//                         "first_name": "Surface",
+//                         "last_name": null,
+//                         "twitter_username": "surface",
+//                         "portfolio_url": "http://surface.com",
+//                         "bio": "Follow us @Surface – Laptops designed by Microsoft",
+//                         "location": null,
+//                         "links": {
+//                             "self": "https://api.unsplash.com/users/surface",
+//                             "html": "https://unsplash.com/@surface",
+//                             "photos": "https://api.unsplash.com/users/surface/photos",
+//                             "likes": "https://api.unsplash.com/users/surface/likes",
+//                             "portfolio": "https://api.unsplash.com/users/surface/portfolio",
+//                             "following": "https://api.unsplash.com/users/surface/following",
+//                             "followers": "https://api.unsplash.com/users/surface/followers"
+//                         },
+//                         "profile_image": {
+//                             "small": "https://images.unsplash.com/profile-1587651800415-20eed2ec0209image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=32&h=32",
+//                             "medium": "https://images.unsplash.com/profile-1587651800415-20eed2ec0209image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=64&h=64",
+//                             "large": "https://images.unsplash.com/profile-1587651800415-20eed2ec0209image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128"
+//                         },
+//                         "instagram_username": "surface",
+//                         "total_collections": 6,
+//                         "total_likes": 0,
+//                         "total_photos": 301,
+//                         "accepted_tos": true,
+//                         "for_hire": false,
+//                         "social": {
+//                             "instagram_username": "surface",
+//                             "portfolio_url": "http://surface.com",
+//                             "twitter_username": "surface",
+//                             "paypal_email": null
+//                         }
+//                     }
+//                 },
+//                 "topic_submissions": {},
+//                 "user": {
+//                     "id": "N-JSeSTCz68",
+//                     "updated_at": "2023-03-13T01:17:16Z",
+//                     "username": "surface",
+//                     "name": "Surface",
+//                     "first_name": "Surface",
+//                     "last_name": null,
+//                     "twitter_username": "surface",
+//                     "portfolio_url": "http://surface.com",
+//                     "bio": "Follow us @Surface – Laptops designed by Microsoft",
+//                     "location": null,
+//                     "links": {
+//                         "self": "https://api.unsplash.com/users/surface",
+//                         "html": "https://unsplash.com/@surface",
+//                         "photos": "https://api.unsplash.com/users/surface/photos",
+//                         "likes": "https://api.unsplash.com/users/surface/likes",
+//                         "portfolio": "https://api.unsplash.com/users/surface/portfolio",
+//                         "following": "https://api.unsplash.com/users/surface/following",
+//                         "followers": "https://api.unsplash.com/users/surface/followers"
+//                     },
+//                     "profile_image": {
+//                         "small": "https://images.unsplash.com/profile-1587651800415-20eed2ec0209image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=32&h=32",
+//                         "medium": "https://images.unsplash.com/profile-1587651800415-20eed2ec0209image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=64&h=64",
+//                         "large": "https://images.unsplash.com/profile-1587651800415-20eed2ec0209image?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128"
+//                     },
+//                     "instagram_username": "surface",
+//                     "total_collections": 6,
+//                     "total_likes": 0,
+//                     "total_photos": 301,
+//                     "accepted_tos": true,
+//                     "for_hire": false,
+//                     "social": {
+//                         "instagram_username": "surface",
+//                         "portfolio_url": "http://surface.com",
+//                         "twitter_username": "surface",
+//                         "paypal_email": null
+//                     }
+//                 },
+//                 "tags": [
+//                     {
+//                         "type": "landing_page",
+//                         "title": "person",
+//                         "source": {
+//                             "ancestry": {
+//                                 "type": {
+//                                     "slug": "images",
+//                                     "pretty_slug": "Images"
+//                                 },
+//                                 "category": {
+//                                     "slug": "people",
+//                                     "pretty_slug": "People"
+//                                 }
+//                             },
+//                             "title": "People images & pictures",
+//                             "subtitle": "Download free people images",
+//                             "description": "Human faces speak to us in a way that language cannot. Everyone recognize a smile, a frown, tears. Unsplash has the finest selection of people images on the web: high-def and curated for quality. Family, friends, men, women, Unsplash has photos for all.",
+//                             "meta_title": "People Pictures [HQ] | Download Free Images on Unsplash",
+//                             "meta_description": "Choose from hundreds of free people pictures. Download HD people photos for free on Unsplash.",
+//                             "cover_photo": {
+//                                 "id": "PmNjS6b3XP4",
+//                                 "created_at": "2017-04-20T22:04:07Z",
+//                                 "updated_at": "2023-03-13T07:01:37Z",
+//                                 "promoted_at": "2017-04-21T16:00:49Z",
+//                                 "width": 4630,
+//                                 "height": 3087,
+//                                 "color": "#a6d9d9",
+//                                 "blur_hash": "LjI=x%:QUbv#NHWVa}kCt7jFjZfQ",
+//                                 "description": "Summer in France with baby",
+//                                 "alt_description": "woman carrying baby while walking",
+//                                 "urls": {
+//                                     "raw": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?ixlib=rb-4.0.3",
+//                                     "full": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?ixlib=rb-4.0.3&q=80&cs=tinysrgb&fm=jpg&crop=entropy",
+//                                     "regular": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?ixlib=rb-4.0.3&w=1080&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
+//                                     "small": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?ixlib=rb-4.0.3&w=400&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
+//                                     "thumb": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?ixlib=rb-4.0.3&w=200&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
+//                                     "small_s3": "https://s3.us-west-2.amazonaws.com/images.unsplash.com/small/photo-1492725764893-90b379c2b6e7"
+//                                 },
+//                                 "links": {
+//                                     "self": "https://api.unsplash.com/photos/PmNjS6b3XP4",
+//                                     "html": "https://unsplash.com/photos/PmNjS6b3XP4",
+//                                     "download": "https://unsplash.com/photos/PmNjS6b3XP4/download",
+//                                     "download_location": "https://api.unsplash.com/photos/PmNjS6b3XP4/download"
+//                                 },
+//                                 "likes": 2644,
+//                                 "liked_by_user": false,
+//                                 "current_user_collections": [],
+//                                 "sponsorship": null,
+//                                 "topic_submissions": {
+//                                     "current-events": {
+//                                         "status": "approved",
+//                                         "approved_on": "2021-03-01T12:52:57Z"
+//                                     }
+//                                 },
+//                                 "premium": false,
+//                                 "user": {
+//                                     "id": "7S_pCRiCiQo",
+//                                     "updated_at": "2023-03-12T19:29:24Z",
+//                                     "username": "thedakotacorbin",
+//                                     "name": "Dakota Corbin",
+//                                     "first_name": "Dakota",
+//                                     "last_name": "Corbin",
+//                                     "twitter_username": "thedakotacorbin",
+//                                     "portfolio_url": null,
+//                                     "bio": "Husband | Father | Creator",
+//                                     "location": "Utah, United States",
+//                                     "links": {
+//                                         "self": "https://api.unsplash.com/users/thedakotacorbin",
+//                                         "html": "https://unsplash.com/@thedakotacorbin",
+//                                         "photos": "https://api.unsplash.com/users/thedakotacorbin/photos",
+//                                         "likes": "https://api.unsplash.com/users/thedakotacorbin/likes",
+//                                         "portfolio": "https://api.unsplash.com/users/thedakotacorbin/portfolio",
+//                                         "following": "https://api.unsplash.com/users/thedakotacorbin/following",
+//                                         "followers": "https://api.unsplash.com/users/thedakotacorbin/followers"
+//                                     },
+//                                     "profile_image": {
+//                                         "small": "https://images.unsplash.com/profile-1623795199834-f8109281554dimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=32&h=32",
+//                                         "medium": "https://images.unsplash.com/profile-1623795199834-f8109281554dimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=64&h=64",
+//                                         "large": "https://images.unsplash.com/profile-1623795199834-f8109281554dimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128"
+//                                     },
+//                                     "instagram_username": "thedakotacorbin",
+//                                     "total_collections": 0,
+//                                     "total_likes": 1,
+//                                     "total_photos": 44,
+//                                     "accepted_tos": true,
+//                                     "for_hire": true,
+//                                     "social": {
+//                                         "instagram_username": "thedakotacorbin",
+//                                         "portfolio_url": null,
+//                                         "twitter_username": "thedakotacorbin",
+//                                         "paypal_email": null
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     },
+//                     {
+//                         "type": "search",
+//                         "title": "hair"
+//                     },
+//                     {
+//                         "type": "landing_page",
+//                         "title": "computer",
+//                         "source": {
+//                             "ancestry": {
+//                                 "type": {
+//                                     "slug": "wallpapers",
+//                                     "pretty_slug": "HD Wallpapers"
+//                                 },
+//                                 "category": {
+//                                     "slug": "desktop",
+//                                     "pretty_slug": "Desktop"
+//                                 },
+//                                 "subcategory": {
+//                                     "slug": "computer",
+//                                     "pretty_slug": "Computer"
+//                                 }
+//                             },
+//                             "title": "Hd computer wallpapers",
+//                             "subtitle": "Download free computer wallpapers",
+//                             "description": "Choose from a curated selection of computer wallpapers for your mobile and desktop screens. Always free on Unsplash.",
+//                             "meta_title": "Computer Wallpapers: Free HD Download [500+ HQ] | Unsplash",
+//                             "meta_description": "Choose from hundreds of free computer wallpapers. Download HD wallpapers for free on Unsplash.",
+//                             "cover_photo": {
+//                                 "id": "wyEinDRV88I",
+//                                 "created_at": "2016-11-18T21:01:40Z",
+//                                 "updated_at": "2023-03-13T14:01:06Z",
+//                                 "promoted_at": "2016-11-18T21:01:40Z",
+//                                 "width": 7952,
+//                                 "height": 5304,
+//                                 "color": "#c0c0c0",
+//                                 "blur_hash": "LhF$CS?bRjRj~p%LV@WCSiWWWBof",
+//                                 "description": null,
+//                                 "alt_description": "woman taking photo of buildings",
+//                                 "urls": {
+//                                     "raw": "https://images.unsplash.com/photo-1479502806991-251c94be6b15?ixlib=rb-4.0.3",
+//                                     "full": "https://images.unsplash.com/photo-1479502806991-251c94be6b15?ixlib=rb-4.0.3&q=80&cs=tinysrgb&fm=jpg&crop=entropy",
+//                                     "regular": "https://images.unsplash.com/photo-1479502806991-251c94be6b15?ixlib=rb-4.0.3&w=1080&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
+//                                     "small": "https://images.unsplash.com/photo-1479502806991-251c94be6b15?ixlib=rb-4.0.3&w=400&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
+//                                     "thumb": "https://images.unsplash.com/photo-1479502806991-251c94be6b15?ixlib=rb-4.0.3&w=200&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
+//                                     "small_s3": "https://s3.us-west-2.amazonaws.com/images.unsplash.com/small/photo-1479502806991-251c94be6b15"
+//                                 },
+//                                 "links": {
+//                                     "self": "https://api.unsplash.com/photos/wyEinDRV88I",
+//                                     "html": "https://unsplash.com/photos/wyEinDRV88I",
+//                                     "download": "https://unsplash.com/photos/wyEinDRV88I/download",
+//                                     "download_location": "https://api.unsplash.com/photos/wyEinDRV88I/download"
+//                                 },
+//                                 "likes": 575,
+//                                 "liked_by_user": false,
+//                                 "current_user_collections": [],
+//                                 "sponsorship": null,
+//                                 "topic_submissions": {
+//                                     "wallpapers": {
+//                                         "status": "approved",
+//                                         "approved_on": "2020-04-06T14:20:09Z"
+//                                     }
+//                                 },
+//                                 "premium": false,
+//                                 "user": {
+//                                     "id": "WylEZk6e2xA",
+//                                     "updated_at": "2023-03-13T04:42:14Z",
+//                                     "username": "thoughtcatalog",
+//                                     "name": "Thought Catalog",
+//                                     "first_name": "Thought",
+//                                     "last_name": "Catalog",
+//                                     "twitter_username": "thoughtcatalog",
+//                                     "portfolio_url": "http://thoughtcatalog.com/?utm_campaign=platform-link&utm_source=unsplash&utm_medium=profile",
+//                                     "bio": "We're a digital magazine based in Brooklyn. We use Unsplash to share with the world some of our best in-house photography.",
+//                                     "location": "New York",
+//                                     "links": {
+//                                         "self": "https://api.unsplash.com/users/thoughtcatalog",
+//                                         "html": "https://unsplash.com/@thoughtcatalog",
+//                                         "photos": "https://api.unsplash.com/users/thoughtcatalog/photos",
+//                                         "likes": "https://api.unsplash.com/users/thoughtcatalog/likes",
+//                                         "portfolio": "https://api.unsplash.com/users/thoughtcatalog/portfolio",
+//                                         "following": "https://api.unsplash.com/users/thoughtcatalog/following",
+//                                         "followers": "https://api.unsplash.com/users/thoughtcatalog/followers"
+//                                     },
+//                                     "profile_image": {
+//                                         "small": "https://images.unsplash.com/profile-1479502385647-8aa0d0e9a87b?ixlib=rb-4.0.3&crop=faces&fit=crop&w=32&h=32",
+//                                         "medium": "https://images.unsplash.com/profile-1479502385647-8aa0d0e9a87b?ixlib=rb-4.0.3&crop=faces&fit=crop&w=64&h=64",
+//                                         "large": "https://images.unsplash.com/profile-1479502385647-8aa0d0e9a87b?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128"
+//                                     },
+//                                     "instagram_username": "thoughtcatalog",
+//                                     "total_collections": 5,
+//                                     "total_likes": 12,
+//                                     "total_photos": 173,
+//                                     "accepted_tos": true,
+//                                     "for_hire": true,
+//                                     "social": {
+//                                         "instagram_username": "thoughtcatalog",
+//                                         "portfolio_url": "http://thoughtcatalog.com/?utm_campaign=platform-link&utm_source=unsplash&utm_medium=profile",
+//                                         "twitter_username": "thoughtcatalog",
+//                                         "paypal_email": null
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 ]
+//             }
+//         ]
+//     },
+//     "originalResponse": {}
+// }

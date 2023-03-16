@@ -10,7 +10,7 @@ const detailsReducer: Reducer<DetailsState, DetailsAction> = produce(
       case ACTION_TYPES.SET_DETAILS: {
         draft.details = payload;
 
-        return;
+        return draft;
       }
 
       default: {
