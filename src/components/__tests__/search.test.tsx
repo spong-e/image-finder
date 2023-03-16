@@ -1,8 +1,6 @@
 import { MemoryRouter } from "react-router-dom";
 
-import { act, fireEvent, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { wait } from "@testing-library/user-event/dist/utils";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 import { ROUTES } from "../../constants";
 import { useUnsplash } from "../../hooks";

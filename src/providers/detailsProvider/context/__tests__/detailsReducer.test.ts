@@ -1,7 +1,5 @@
 import produce from "immer";
 
-import { render } from "@testing-library/react";
-
 import { ACTION_TYPES } from "../../constants";
 import detailsReducer from "../DetailsReducer";
 

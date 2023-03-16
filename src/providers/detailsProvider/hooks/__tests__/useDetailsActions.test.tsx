@@ -1,23 +1,12 @@
 import React, { Dispatch, ReactNode } from "react";
 
-import { renderHook, waitFor } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
 
-import { useUnsplash } from "../../../../hooks";
-import { unsplashSearch } from "../../../../hooks/unsplashSearch";
 import { ACTION_TYPES } from "../../constants";
 import { DetailsDispatchContext } from "../../context";
 import useDetailsActions from "../useDetailsActions";
 
 import "@testing-library/jest-dom";
-
-const state: DetailsState = {
-  details: {
-    firstName: "",
-    lastName: "",
-    topic: "",
-    thumbnail: "",
-  },
-};
 
 interface WrapperProps {
   children: ReactNode;
