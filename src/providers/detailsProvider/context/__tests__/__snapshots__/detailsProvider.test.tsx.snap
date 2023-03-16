@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details provider Provider renders children 1`] = `
+<div>
+  <h1>
+    This is the Details Provider
+  </h1>
+</div>
+`;

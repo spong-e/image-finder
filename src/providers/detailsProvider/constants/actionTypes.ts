@@ -1,6 +1,5 @@
 const ACTION_TYPES = {
   SET_DETAILS: "SET_DETAILS",
-  IMAGE_SEARCH: "IMAGE_SEARCH",
 };
 
 export { ACTION_TYPES };

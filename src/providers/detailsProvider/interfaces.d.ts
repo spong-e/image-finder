@@ -1,3 +1,7 @@
+interface DetailsProviderProps {
+  children: ReactNode;
+}
+
 interface DetailsState {
   details: Details;
 }

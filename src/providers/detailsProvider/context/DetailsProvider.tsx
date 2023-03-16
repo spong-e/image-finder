@@ -1,21 +1,18 @@
-import {
-  createContext,
-  Dispatch,
-  FunctionComponent,
-  ReactNode,
-  useReducer,
-} from "react";
+import { createContext, Dispatch, FunctionComponent, useReducer } from "react";
 
 import detailsReducer from "./DetailsReducer";
 
-const DetailsContext = createContext<DetailsState | undefined>(undefined);
+const DetailsContext = createContext<DetailsState | undefined>({
+  details: {
+    firstName: "",
+    lastName: "",
+    topic: "",
+    thumbnail: "",
+  },
+});
 const DetailsDispatchContext = createContext<
   Dispatch<DetailsAction> | undefined
 >(undefined);
-
-interface DetailsProviderProps {
-  children: ReactNode;
-}
 
 const DetailsProvider: FunctionComponent<DetailsProviderProps> = ({
   children,

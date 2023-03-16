@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Card, Image, Loader } from "semantic-ui-react";
+import { Button, Card, Image, Loader, Message } from "semantic-ui-react";
 
 import { ROUTES } from "../constants";
 import { useUnsplash } from "../hooks";
@@ -11,23 +11,35 @@ const Search: FunctionComponent = () => {
   const details = useDetails();
   const { setDetails } = useDetailsActions();
   const [page, setPage] = useState<number>(1);
-  const [isSearching, photo] = useUnsplash(details.topic, page);
+  const [isSearching, photo, isError] = useUnsplash(details.topic, page);
 
   const decline = () => {
     setPage(page + 1);
   };
 
   const accept = () => {
-    if (!photo) return;
-    const newDetails: Details = { ...details, thumbnail: photo };
-
-    setDetails(newDetails).then(() => navigate(ROUTES.DISPLAY));
+    const newDetails: Details = { ...details, thumbnail: photo! };
+    setDetails(newDetails);
+    navigate(ROUTES.DISPLAY);
   };
+
+  if (isError) {
+    return (
+      <>
+        <Message negative>
+          <Message.Header>
+            Something has gone wrong with your search
+          </Message.Header>
+          <Link to={ROUTES.ENTRY}>Start again</Link>
+        </Message>
+      </>
+    );
+  }
 
   return (
     <>
       <Card>
-        {!isSearching && (
+        {isSearching && (
           <Card.Content>
             <Loader active inline size="massive">
               Searching...
@@ -38,14 +50,24 @@ const Search: FunctionComponent = () => {
           <>
             {" "}
             <Card.Content>
-              <Image src={photo} wrapped ui={true} />
+              <Image src={photo} wrapped ui={true} data-testid="imageElement" />
             </Card.Content>
             <Card.Content extra>
               <div className="ui two buttons">
-                <Button basic color="green" onClick={() => accept()}>
+                <Button
+                  basic
+                  color="green"
+                  onClick={() => accept()}
+                  data-testid="acceptBtn"
+                >
                   Accept
                 </Button>
-                <Button basic color="red" onClick={() => decline()}>
+                <Button
+                  basic
+                  color="red"
+                  onClick={() => decline()}
+                  data-testid="declineBtn"
+                >
                   Decline
                 </Button>
               </div>

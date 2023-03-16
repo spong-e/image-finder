@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display component Details returned Given useDetails returns data, component renders 1`] = `
+<div>
+  <div
+    class="ui card"
+  >
+    <div
+      class="content"
+    >
+      <img
+        class="ui small right floated image"
+        data-testid="card-thumbnail"
+        src="http://tempuri/thumbnail"
+      />
+      <div
+        class="header"
+        data-testid="card-header"
+      >
+        Test
+         
+        User
+      </div>
+    </div>
+  </div>
+  <a
+    href="/"
+  >
+    Start again
+  </a>
+</div>
+`;
+
+exports[`Display component No details returned Given useDetails returns null, component does not render 1`] = `<div />`;
