@@ -48,6 +48,36 @@ describe("Entry component", () => {
     });
   });
 
+  it("When form partly completed and submit clicked, validation fires", async () => {
+    const { container } = render(
+      <MemoryRouter>
+        <Entry />
+      </MemoryRouter>
+    );
+
+    const submitButtonWrapper = await screen.findByTestId("submitBtn");
+
+    fireEvent.click(submitButtonWrapper);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("When form 'Other' topic selected, other input appears", async () => {
+    const { container } = render(
+      <MemoryRouter>
+        <Entry />
+      </MemoryRouter>
+    );
+
+    await clickRadioInput("topic_otherRadio");
+
+    const submitButtonWrapper = await screen.findByTestId("submitBtn");
+
+    fireEvent.click(submitButtonWrapper);
+
+    expect(container).toMatchSnapshot();
+  });
+
   it("When form completed and submit clicked, setDetails function is called", async () => {
     const { container } = render(
       <MemoryRouter>

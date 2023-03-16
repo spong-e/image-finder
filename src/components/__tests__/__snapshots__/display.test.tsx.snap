@@ -10,12 +10,12 @@ exports[`Display component Details returned Given useDetails returns data, compo
     >
       <img
         class="ui small right floated image"
-        data-testid="card-thumbnail"
+        data-testid="cardThumbnail"
         src="http://tempuri/thumbnail"
       />
       <div
         class="header"
-        data-testid="card-header"
+        data-testid="cardHeader"
       >
         Test
          

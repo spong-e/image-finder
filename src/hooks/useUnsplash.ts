@@ -4,11 +4,12 @@ import { unsplashSearch } from "./unsplashSearch";
 
 const useUnsplash = (topic: string, page: number) => {
   const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [photo, setPhoto] = useState<string | null>();
+  const [photo, setPhoto] = useState<string | null>(null);
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
     setIsSearching(true);
+    setPhoto(null);
 
     unsplashSearch
       .search(topic, page)
@@ -20,8 +21,8 @@ const useUnsplash = (topic: string, page: number) => {
             urls: { small },
           } = photos.results[0];
 
-          setPhoto(small);
           setIsSearching(false);
+          setPhoto(small);
         }
       })
       .catch(() => {

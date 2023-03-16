@@ -20,10 +20,10 @@ const Display: FunctionComponent = () => {
             src={thumbnail}
             floated="right"
             size="small"
-            data-testid="card-thumbnail"
+            data-testid="cardThumbnail"
           />
 
-          <Card.Header data-testid="card-header">
+          <Card.Header data-testid="cardHeader">
             {firstName} {lastName}
           </Card.Header>
         </Card.Content>

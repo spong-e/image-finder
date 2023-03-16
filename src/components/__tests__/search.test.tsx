@@ -55,6 +55,28 @@ describe.only("Search component", () => {
     });
   });
 
+  describe("Component renders as expected when error returned", () => {
+    beforeEach(async () => {
+      (useDetailsActions as jest.Mock).mockReturnValue(mockDetailsActions);
+      (useDetails as jest.Mock).mockReturnValue(details);
+      (useUnsplash as jest.Mock).mockImplementation(() => {
+        const isSearching = false;
+        const photo = null;
+        const isError = true;
+        return [isSearching, photo, isError] as const;
+      });
+    });
+    it("When component loads, shows 'error' message and renders as expected", async () => {
+      const { container } = render(
+        <MemoryRouter>
+          <Search />
+        </MemoryRouter>
+      );
+
+      expect(container).toMatchSnapshot();
+    });
+  });
+
   describe("Component renders as expected when searching complete", () => {
     beforeEach(async () => {
       (useDetailsActions as jest.Mock).mockReturnValue(mockDetailsActions);
