@@ -29,8 +29,8 @@ describe("Display component", () => {
         </MemoryRouter>
       );
 
-      const thumbnail = await screen.findByTestId("card-thumbnail");
-      const header = await screen.findByTestId("card-header");
+      const thumbnail = await screen.findByTestId("cardThumbnail");
+      const header = await screen.findByTestId("cardHeader");
 
       expect(thumbnail).toHaveAttribute("src", details.thumbnail);
       expect(header).toHaveTextContent(

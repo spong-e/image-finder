@@ -41,7 +41,7 @@ const Search: FunctionComponent = () => {
       <Card>
         {isSearching && (
           <Card.Content>
-            <Loader active inline size="massive">
+            <Loader active inline size="massive" data-testid="searchingSpinner">
               Searching...
             </Loader>
           </Card.Content>

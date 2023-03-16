@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Search component Component renders as expected when error returned When component loads, shows 'error' message and renders as expected 1`] = `
+<div>
+  <div
+    class="ui negative message"
+  >
+    <div
+      class="header"
+    >
+      Something has gone wrong with your search
+    </div>
+    <a
+      href="/"
+    >
+      Start again
+    </a>
+  </div>
+</div>
+`;
+
 exports[`Search component Component renders as expected when searching When component loads, shows 'searching' message and renders as expected 1`] = `
 <div>
   <div
@@ -10,6 +29,7 @@ exports[`Search component Component renders as expected when searching When comp
     >
       <div
         class="ui massive active text inline loader"
+        data-testid="searchingSpinner"
       >
         Searching...
       </div>

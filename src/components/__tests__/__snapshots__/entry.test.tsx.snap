@@ -188,6 +188,214 @@ exports[`Entry component Component renders as expected When component loads, ren
 </div>
 `;
 
+exports[`Entry component When form 'Other' topic selected, other input appears 1`] = `
+<div>
+  <div>
+    <form
+      class="ui form"
+    >
+      <div
+        class="equal width fields"
+      >
+        <div
+          class="field"
+        >
+          <label
+            for="firstName"
+          >
+            First name
+          </label>
+          <div
+            class="ui input"
+            data-testid="firstNameInput"
+          >
+            <input
+              id="firstName"
+              placeholder="First name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <label
+            for="lastName"
+          >
+            Last name
+          </label>
+          <div
+            class="ui input"
+            data-testid="lastNameInput"
+          >
+            <input
+              id="lastName"
+              placeholder="Last name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="inline fields"
+      >
+        <div
+          class="field"
+        >
+          <div
+            class="ui radio checkbox"
+            data-testid="topic_travelRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_travel"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="travel"
+            />
+            <label
+              for="topic_travel"
+            >
+              Travel
+            </label>
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="ui radio checkbox"
+            data-testid="topic_carsRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_cars"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="cars"
+            />
+            <label
+              for="topic_cars"
+            >
+              Cars
+            </label>
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="ui radio checkbox"
+            data-testid="topic_wildlifeRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_wildlife"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="wildlife"
+            />
+            <label
+              for="topic_wildlife"
+            >
+              Wildlife
+            </label>
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="ui radio checkbox"
+            data-testid="topic_technologyRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_technology"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="technology"
+            />
+            <label
+              for="topic_technology"
+            >
+              Technology
+            </label>
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="ui checked radio checkbox"
+            data-testid="topic_otherRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_other"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="other"
+            />
+            <label
+              for="topic_other"
+            >
+              Other
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="equal width fields"
+      >
+        <div
+          class="field"
+        >
+          <label
+            for="otherTopic"
+          >
+            Other topic
+          </label>
+          <div
+            class="ui input"
+            data-testid="otherTopicInput"
+          >
+            <input
+              id="otherTopic"
+              placeholder="Other topic"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="field"
+      >
+        <button
+          class="ui primary button"
+          data-testid="submitBtn"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`Entry component When form completed and submit clicked, setDetails function is called 1`] = `
 <div>
   <div>
@@ -269,6 +477,194 @@ exports[`Entry component When form completed and submit clicked, setDetails func
         >
           <div
             class="ui checked radio checkbox"
+            data-testid="topic_carsRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_cars"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="cars"
+            />
+            <label
+              for="topic_cars"
+            >
+              Cars
+            </label>
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="ui radio checkbox"
+            data-testid="topic_wildlifeRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_wildlife"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="wildlife"
+            />
+            <label
+              for="topic_wildlife"
+            >
+              Wildlife
+            </label>
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="ui radio checkbox"
+            data-testid="topic_technologyRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_technology"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="technology"
+            />
+            <label
+              for="topic_technology"
+            >
+              Technology
+            </label>
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="ui radio checkbox"
+            data-testid="topic_otherRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_other"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="other"
+            />
+            <label
+              for="topic_other"
+            >
+              Other
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="equal width fields"
+      />
+      <div
+        class="field"
+      >
+        <button
+          class="ui primary button"
+          data-testid="submitBtn"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Entry component When form partly completed and submit clicked, validation fires 1`] = `
+<div>
+  <div>
+    <form
+      class="ui form"
+    >
+      <div
+        class="equal width fields"
+      >
+        <div
+          class="field"
+        >
+          <label
+            for="firstName"
+          >
+            First name
+          </label>
+          <div
+            class="ui input"
+            data-testid="firstNameInput"
+          >
+            <input
+              id="firstName"
+              placeholder="First name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <label
+            for="lastName"
+          >
+            Last name
+          </label>
+          <div
+            class="ui input"
+            data-testid="lastNameInput"
+          >
+            <input
+              id="lastName"
+              placeholder="Last name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="inline fields"
+      >
+        <div
+          class="field"
+        >
+          <div
+            class="ui radio checkbox"
+            data-testid="topic_travelRadio"
+          >
+            <input
+              class="hidden"
+              id="topic_travel"
+              name="topic"
+              readonly=""
+              tabindex="0"
+              type="radio"
+              value="travel"
+            />
+            <label
+              for="topic_travel"
+            >
+              Travel
+            </label>
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="ui radio checkbox"
             data-testid="topic_carsRadio"
           >
             <input

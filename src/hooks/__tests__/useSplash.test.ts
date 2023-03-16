@@ -19,7 +19,7 @@ describe("useUnsplash hooks", () => {
       const [isSearching, photo, isError] = result.current;
 
       expect(isSearching).toBe(true);
-      expect(photo).toBeUndefined();
+      expect(photo).toBeNull();
       expect(isError).toBe(false);
 
       await waitFor(() => expect(result.current[1]).toBeTruthy(), {
