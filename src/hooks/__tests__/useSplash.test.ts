@@ -1,4 +1,4 @@
-import { act, renderHook, waitFor } from "@testing-library/react";
+import { renderHook, waitFor } from "@testing-library/react";
 
 import { unsplashSearch } from "../unsplashSearch";
 import useUnsplash from "../useUnsplash";
@@ -8,8 +8,6 @@ import * as response from "./response.json";
 import "@testing-library/jest-dom";
 
 jest.mock("../unsplashSearch");
-
-jest.mock("../../providers");
 
 describe("useUnsplash hooks", () => {
   describe("Details returned", () => {
