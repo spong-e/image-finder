@@ -31,4 +31,21 @@ exports[`Display component Details returned Given useDetails returns data, compo
 </div>
 `;
 
-exports[`Display component No details returned Given useDetails returns null, component does not render 1`] = `<div />`;
+exports[`Display component No details returned Given useDetails returns null, component does not render 1`] = `
+<div>
+  <div
+    class="ui negative message"
+  >
+    <div
+      class="header"
+    >
+      Something has gone wrong with your search
+    </div>
+    <a
+      href="/"
+    >
+      Start again
+    </a>
+  </div>
+</div>
+`;

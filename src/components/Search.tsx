@@ -23,7 +23,7 @@ const Search: FunctionComponent = () => {
     navigate(ROUTES.DISPLAY);
   };
 
-  if (isError) {
+  if (!details || isError) {
     return (
       <>
         <Message negative>

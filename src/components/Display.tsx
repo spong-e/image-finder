@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { Card, Image } from "semantic-ui-react";
+import { Card, Image, Message } from "semantic-ui-react";
 
 import { ROUTES } from "../constants";
 import { useDetails } from "../providers";
@@ -8,7 +8,23 @@ import { useDetails } from "../providers";
 const Display: FunctionComponent = () => {
   const details = useDetails();
 
-  if (!details) return null;
+  if (
+    !details ||
+    !details.firstName ||
+    !details.lastName ||
+    !details.thumbnail
+  ) {
+    return (
+      <>
+        <Message negative>
+          <Message.Header>
+            Something has gone wrong with your search
+          </Message.Header>
+          <Link to={ROUTES.ENTRY}>Start again</Link>
+        </Message>
+      </>
+    );
+  }
 
   const { thumbnail, firstName, lastName } = details;
 

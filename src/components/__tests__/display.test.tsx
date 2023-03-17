@@ -53,7 +53,6 @@ describe("Display component", () => {
         </MemoryRouter>
       );
 
-      expect(container).toBeEmptyDOMElement();
       expect(container).toMatchSnapshot();
     });
   });
