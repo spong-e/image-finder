@@ -100,7 +100,7 @@ describe.only("Search component", () => {
 
       const imageWrapper = await screen.findByTestId("imageElement");
 
-      const image = imageWrapper.firstChild as HTMLImageElement;
+      const image = imageWrapper as HTMLImageElement;
 
       expect(image).toHaveAttribute("src", `http://tempuri/${details.topic}/1`);
 
@@ -116,7 +116,7 @@ describe.only("Search component", () => {
 
       const imageWrapper = await screen.findByTestId("imageElement");
 
-      const image = imageWrapper.firstChild as HTMLImageElement;
+      const image = imageWrapper as HTMLImageElement;
 
       expect(image).toHaveAttribute("src", `http://tempuri/${details.topic}/1`);
 

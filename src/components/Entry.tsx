@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-import { Form, Input, Radio } from "semantic-ui-react";
 import * as Yup from "yup";
 
 import { ROUTES } from "../constants";
@@ -57,84 +56,98 @@ const Entry: FunctionComponent = () => {
   const otherSelected = formik.values.topic === "other";
 
   return (
-    <div>
-      <Form onSubmit={formik.handleSubmit}>
-        <Form.Group widths="equal">
-          <Form.Field
+    <form onSubmit={formik.handleSubmit}>
+      <div className="row">
+        <div className="field">
+          <label htmlFor="firstName">First name</label>
+
+          <input
             id="firstName"
-            control={Input}
-            label="First name"
+            name="firstName"
             placeholder="First name"
-            value={formik.values.firstName}
-            onChange={formik.handleChange}
             data-testid="firstNameInput"
-            error={
-              formik.touched.firstName &&
-              Boolean(formik.errors.firstName) && {
-                pointing: "above",
-                content: formik.errors.firstName,
-              }
-            }
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.firstName}
+            className=""
           />
 
-          <Form.Field
+          {formik.touched.firstName && Boolean(formik.errors.firstName) && (
+            <div className="error-message">{formik.errors.firstName}</div>
+          )}
+        </div>
+        <div className="field">
+          <label htmlFor="lastName">Last name</label>
+          <input
             id="lastName"
-            control={Input}
-            label="Last name"
+            name="lastName"
             placeholder="Last name"
-            value={formik.values.lastName}
-            onChange={formik.handleChange}
             data-testid="lastNameInput"
-            error={
-              formik.touched.lastName &&
-              Boolean(formik.errors.lastName) && {
-                pointing: "above",
-                content: formik.errors.lastName,
-              }
-            }
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.lastName}
+            className=""
           />
-        </Form.Group>
-        <Form.Group inline>
+
+          {formik.touched.lastName && Boolean(formik.errors.lastName) && (
+            <div className="error-message">{formik.errors.lastName}</div>
+          )}
+        </div>
+      </div>
+
+      <div className="topicOptions">
+        <fieldset>
           {topicOptions.map((topic) => {
             return (
-              <Form.Field key={`topic_${topic.value}`}>
-                <Radio
-                  id={`topic_${topic.value}`}
-                  label={topic.label}
-                  name="topic"
-                  value={topic.value}
-                  checked={formik.values.topic === topic.value}
-                  onChange={formik.handleChange}
-                  data-testid={`topic_${topic.value}Radio`}
-                />
-              </Form.Field>
+              <div className="floatBlock" key={`topic_${topic.value}`}>
+                <label htmlFor={`topic_${topic.value}`}>
+                  <input
+                    type="radio"
+                    id={`topic_${topic.value}`}
+                    name="topic"
+                    value={topic.value}
+                    checked={formik.values.topic === topic.value}
+                    onChange={formik.handleChange}
+                    data-testid={`topic_${topic.value}Radio`}
+                  />
+                  {topic.label}
+                </label>
+              </div>
             );
           })}
-        </Form.Group>
-        <Form.Group widths="equal">
-          {otherSelected && (
-            <Form.Field
-              id="otherTopic"
-              control={Input}
-              label="Other topic"
-              placeholder="Other topic"
-              onChange={formik.handleChange}
-              data-testid="otherTopicInput"
-              error={
-                formik.touched.otherTopic &&
-                Boolean(formik.errors.otherTopic) && {
-                  content: formik.errors.otherTopic,
-                }
-              }
-            />
-          )}
-        </Form.Group>
+        </fieldset>
+      </div>
 
-        <Form.Button primary type="submit" data-testid="submitBtn">
+      <div className="row">
+        <div className="field">
+          {otherSelected && (
+            <>
+              <label htmlFor="otherTopic">Other topic</label>
+              <input
+                id="otherTopic"
+                name="otherTopic"
+                placeholder="Other topic"
+                onChange={formik.handleChange}
+                data-testid="otherTopicInput"
+              />
+
+              {formik.touched.otherTopic &&
+                Boolean(formik.errors.otherTopic) && (
+                  <div className="error-message">
+                    {formik.errors.otherTopic}
+                  </div>
+                )}
+            </>
+          )}
+        </div>
+      </div>
+
+      <div className="row">
+        <button className="button" type="submit" data-testid="submitBtn">
           Search
-        </Form.Button>
-      </Form>
-    </div>
+        </button>
+      </div>
+    </form>
   );
 };
 

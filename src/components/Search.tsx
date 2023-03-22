@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Card, Image, Loader, Message } from "semantic-ui-react";
+import { Card, Loader, Message } from "semantic-ui-react";
 
 import { ROUTES } from "../constants";
 import { useUnsplash } from "../hooks";
@@ -38,7 +38,7 @@ const Search: FunctionComponent = () => {
 
   return (
     <>
-      <Card>
+      <div>
         {isSearching && (
           <Card.Content>
             <Loader active inline size="massive" data-testid="searchingSpinner">
@@ -49,32 +49,33 @@ const Search: FunctionComponent = () => {
         {photo && (
           <>
             {" "}
-            <Card.Content>
-              <Image src={photo} wrapped ui={true} data-testid="imageElement" />
-            </Card.Content>
-            <Card.Content extra>
-              <div className="ui two buttons">
-                <Button
-                  basic
-                  color="green"
-                  onClick={() => accept()}
-                  data-testid="acceptBtn"
-                >
-                  Accept
-                </Button>
-                <Button
-                  basic
-                  color="red"
-                  onClick={() => decline()}
-                  data-testid="declineBtn"
-                >
-                  Decline
-                </Button>
-              </div>
-            </Card.Content>
+            <div>
+              <img
+                className="preview"
+                src={photo}
+                alt="preview of search result"
+                data-testid="imageElement"
+              />
+            </div>
+            <div>
+              <button
+                className="button"
+                onClick={() => accept()}
+                data-testid="acceptBtn"
+              >
+                Accept
+              </button>
+              <button
+                className="button-decline"
+                onClick={() => decline()}
+                data-testid="declineBtn"
+              >
+                Decline
+              </button>
+            </div>
           </>
         )}
-      </Card>
+      </div>
 
       <Link to={ROUTES.ENTRY}>Start again</Link>
     </>

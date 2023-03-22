@@ -21,9 +21,7 @@ exports[`Search component Component renders as expected when error returned When
 
 exports[`Search component Component renders as expected when searching When component loads, shows 'searching' message and renders as expected 1`] = `
 <div>
-  <div
-    class="ui card"
-  >
+  <div>
     <div
       class="content"
     >
@@ -45,41 +43,29 @@ exports[`Search component Component renders as expected when searching When comp
 
 exports[`Search component Component renders as expected when searching complete After component loaded, clicking on accept dispatches action and navigates to display 1`] = `
 <div>
-  <div
-    class="ui card"
-  >
+  <div>
      
-    <div
-      class="content"
-    >
-      <div
-        class="ui image"
+    <div>
+      <img
+        alt="preview of search result"
+        class="preview"
         data-testid="imageElement"
-      >
-        <img
-          src="http://tempuri/cars/1"
-        />
-      </div>
+        src="http://tempuri/cars/1"
+      />
     </div>
-    <div
-      class="extra content"
-    >
-      <div
-        class="ui two buttons"
+    <div>
+      <button
+        class="button"
+        data-testid="acceptBtn"
       >
-        <button
-          class="ui green basic button"
-          data-testid="acceptBtn"
-        >
-          Accept
-        </button>
-        <button
-          class="ui red basic button"
-          data-testid="declineBtn"
-        >
-          Decline
-        </button>
-      </div>
+        Accept
+      </button>
+      <button
+        class="button-decline"
+        data-testid="declineBtn"
+      >
+        Decline
+      </button>
     </div>
   </div>
   <a
@@ -92,41 +78,29 @@ exports[`Search component Component renders as expected when searching complete 
 
 exports[`Search component Component renders as expected when searching complete After component loaded, clicking on decline generates a new image 1`] = `
 <div>
-  <div
-    class="ui card"
-  >
+  <div>
      
-    <div
-      class="content"
-    >
-      <div
-        class="ui image"
+    <div>
+      <img
+        alt="preview of search result"
+        class="preview"
         data-testid="imageElement"
-      >
-        <img
-          src="http://tempuri/cars/1"
-        />
-      </div>
+        src="http://tempuri/cars/1"
+      />
     </div>
-    <div
-      class="extra content"
-    >
-      <div
-        class="ui two buttons"
+    <div>
+      <button
+        class="button"
+        data-testid="acceptBtn"
       >
-        <button
-          class="ui green basic button"
-          data-testid="acceptBtn"
-        >
-          Accept
-        </button>
-        <button
-          class="ui red basic button"
-          data-testid="declineBtn"
-        >
-          Decline
-        </button>
-      </div>
+        Accept
+      </button>
+      <button
+        class="button-decline"
+        data-testid="declineBtn"
+      >
+        Decline
+      </button>
     </div>
   </div>
   <a
@@ -139,41 +113,29 @@ exports[`Search component Component renders as expected when searching complete 
 
 exports[`Search component Component renders as expected when searching complete After component loaded, clicking on decline generates a new image 2`] = `
 <div>
-  <div
-    class="ui card"
-  >
+  <div>
      
-    <div
-      class="content"
-    >
-      <div
-        class="ui image"
+    <div>
+      <img
+        alt="preview of search result"
+        class="preview"
         data-testid="imageElement"
-      >
-        <img
-          src="http://tempuri/cars/2"
-        />
-      </div>
+        src="http://tempuri/cars/2"
+      />
     </div>
-    <div
-      class="extra content"
-    >
-      <div
-        class="ui two buttons"
+    <div>
+      <button
+        class="button"
+        data-testid="acceptBtn"
       >
-        <button
-          class="ui green basic button"
-          data-testid="acceptBtn"
-        >
-          Accept
-        </button>
-        <button
-          class="ui red basic button"
-          data-testid="declineBtn"
-        >
-          Decline
-        </button>
-      </div>
+        Accept
+      </button>
+      <button
+        class="button-decline"
+        data-testid="declineBtn"
+      >
+        Decline
+      </button>
     </div>
   </div>
   <a
@@ -186,41 +148,29 @@ exports[`Search component Component renders as expected when searching complete 
 
 exports[`Search component Component renders as expected when searching complete When component loads, shows imageu and renders as expected 1`] = `
 <div>
-  <div
-    class="ui card"
-  >
+  <div>
      
-    <div
-      class="content"
-    >
-      <div
-        class="ui image"
+    <div>
+      <img
+        alt="preview of search result"
+        class="preview"
         data-testid="imageElement"
-      >
-        <img
-          src="http://tempuri/cars/1"
-        />
-      </div>
+        src="http://tempuri/cars/1"
+      />
     </div>
-    <div
-      class="extra content"
-    >
-      <div
-        class="ui two buttons"
+    <div>
+      <button
+        class="button"
+        data-testid="acceptBtn"
       >
-        <button
-          class="ui green basic button"
-          data-testid="acceptBtn"
-        >
-          Accept
-        </button>
-        <button
-          class="ui red basic button"
-          data-testid="declineBtn"
-        >
-          Decline
-        </button>
-      </div>
+        Accept
+      </button>
+      <button
+        class="button-decline"
+        data-testid="declineBtn"
+      >
+        Decline
+      </button>
     </div>
   </div>
   <a

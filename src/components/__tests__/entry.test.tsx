@@ -119,9 +119,7 @@ describe("Entry component", () => {
 });
 
 async function setInputValue(testId: string, value: string) {
-  const inputWrapper = await screen.findByTestId(testId);
-
-  const input = inputWrapper.firstChild as HTMLInputElement;
+  const input = (await screen.findByTestId(testId)) as HTMLInputElement;
 
   fireEvent.change(input, {
     target: { value: value },
@@ -131,9 +129,7 @@ async function setInputValue(testId: string, value: string) {
 }
 
 async function clickRadioInput(testId: string) {
-  const inputWrapper = await screen.findByTestId(testId);
-
-  const input = inputWrapper.firstChild as HTMLInputElement;
+  const input = (await screen.findByTestId(testId)) as HTMLInputElement;
 
   userEvent.click(input);
 
