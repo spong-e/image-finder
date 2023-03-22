@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { Card, Image, Message } from "semantic-ui-react";
+import { Message } from "semantic-ui-react";
 
 import { ROUTES } from "../constants";
 import { useDetails } from "../providers";
@@ -30,20 +30,22 @@ const Display: FunctionComponent = () => {
 
   return (
     <>
-      <Card>
-        <Card.Content>
-          <Image
-            src={thumbnail}
-            floated="right"
-            size="small"
-            data-testid="cardThumbnail"
-          />
-
-          <Card.Header data-testid="cardHeader">
-            {firstName} {lastName}
-          </Card.Header>
-        </Card.Content>
-      </Card>
+      <div className="card">
+        <img
+          src={thumbnail}
+          alt="Thumbnail of selected result"
+          className="display"
+          data-testid="cardThumbnail"
+        />
+        <div className="card-container">
+          <h4>
+            <b data-testid="cardHeader">
+              {firstName} {lastName}
+            </b>
+          </h4>
+        </div>
+        <div className="clear"></div>
+      </div>
 
       <Link to={ROUTES.ENTRY}>Start again</Link>
     </>

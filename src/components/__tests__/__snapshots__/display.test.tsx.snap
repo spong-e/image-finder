@@ -3,25 +3,30 @@
 exports[`Display component Details returned Given useDetails returns data, component renders 1`] = `
 <div>
   <div
-    class="ui card"
+    class="card"
   >
+    <img
+      alt="Thumbnail of selected result"
+      class="display"
+      data-testid="cardThumbnail"
+      src="http://tempuri/thumbnail"
+    />
     <div
-      class="content"
+      class="card-container"
     >
-      <img
-        class="ui small right floated image"
-        data-testid="cardThumbnail"
-        src="http://tempuri/thumbnail"
-      />
-      <div
-        class="header"
-        data-testid="cardHeader"
-      >
-        Test
-         
-        User
-      </div>
+      <h4>
+        <b
+          data-testid="cardHeader"
+        >
+          Test
+           
+          User
+        </b>
+      </h4>
     </div>
+    <div
+      class="clear"
+    />
   </div>
   <a
     href="/"
